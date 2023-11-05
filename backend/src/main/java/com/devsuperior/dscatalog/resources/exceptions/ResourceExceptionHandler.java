@@ -1,6 +1,6 @@
 package com.devsuperior.dscatalog.resources.exceptions;
 
-import com.devsuperior.dscatalog.services.exceptions.EntityNotFoundException;
+import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,8 +12,8 @@ import java.time.Instant;
 @ControllerAdvice
 public class ResourceExceptionHandler {
 
-  @ExceptionHandler(EntityNotFoundException.class)
-  public ResponseEntity<StardardError> entityNotFound(EntityNotFoundException e, HttpServletRequest request) {
+  @ExceptionHandler(ResourceNotFoundException.class)
+  public ResponseEntity<StardardError> resourceNotFound(ResourceNotFoundException e, HttpServletRequest request) {
     HttpStatus status = HttpStatus.NOT_FOUND;
 
     StardardError err = StardardError.builder()
