@@ -5,6 +5,7 @@ import com.devsuperior.dscatalog.entities.Product;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
 public class ProductDTO {
   private Long id;
   private String name;
