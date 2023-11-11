@@ -1,8 +1,6 @@
 package com.devsuperior.dscatalog.entities;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -12,6 +10,7 @@ import java.util.Set;
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor
 @Table(name = "tb_product")
 public class Product {
 
@@ -37,4 +36,13 @@ public class Product {
   )
   @Getter
   Set<Category> categories = new HashSet<>();
+
+  public Product(Long id, String name, String description, Double price, String imgUrl, Instant date) {
+    this.id = id;
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.imgUrl = imgUrl;
+    this.date = date;
+  }
 }

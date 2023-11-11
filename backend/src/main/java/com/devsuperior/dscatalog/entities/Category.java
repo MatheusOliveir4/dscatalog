@@ -13,7 +13,6 @@ import java.time.Instant;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "tb_category")
 public class Category {
@@ -29,4 +28,9 @@ public class Category {
 
   @UpdateTimestamp
   private Instant updatedAt;
+
+  public Category(Long id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 }
