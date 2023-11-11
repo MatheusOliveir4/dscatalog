@@ -30,7 +30,7 @@ public class ProductService {
   private CategoryRepository categoryRepository;
 
   @Transactional(readOnly = true)
-  public Page<ProductDTO> findAll(Pageable pageable) {
+  public Page<ProductDTO> findAllPaged(Pageable pageable) {
     Page<Product> result = productRepository.findAll(pageable);
 
     return result.map(x -> new ProductDTO(x));
