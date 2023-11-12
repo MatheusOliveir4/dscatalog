@@ -45,6 +45,7 @@ public class ProductServiceTests {
   private PageImpl<Product> page;
   private Product product;
   private Category category;
+  private ProductDTO productDTO;
 
   @BeforeEach
   void setUp() throws Exception {
@@ -53,6 +54,7 @@ public class ProductServiceTests {
     dependentId = 3L;
     product = Factory.createProduct();
     category = Factory.createCategory();
+    productDTO = Factory.createProductDTO();
     page = new PageImpl<>(List.of(product));
 
     Mockito.when(repository.findAll((Pageable) ArgumentMatchers.any())).thenReturn(page);
@@ -79,8 +81,6 @@ public class ProductServiceTests {
   @Test
   public void updateShouldReturnProductDTOWhenIdExists() {
 
-    ProductDTO productDTO = Factory.createProductDTO();
-
     ProductDTO result = service.update(existingId, productDTO);
     Assertions.assertNotNull(result);
   }
@@ -89,8 +89,6 @@ public class ProductServiceTests {
   public void updateShouldThrowResourceNotFoundExceptionWhenIdDoesNotExist() {
 
     Assertions.assertThrows(ResourceNotFoundException.class, () -> {
-      ProductDTO productDTO = Factory.createProductDTO();
-
       service.update(nonExistingId, productDTO);
     });
   }
