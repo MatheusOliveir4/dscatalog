@@ -1,14 +1,13 @@
 package com.devsuperior.dscatalog.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -28,6 +27,10 @@ public class Category {
 
   @UpdateTimestamp
   private Instant updatedAt;
+
+  @Getter
+  @ManyToMany(mappedBy = "categories")
+  private Set<Product> products = new HashSet<>();
 
   public Category(Long id, String name) {
     this.id = id;
