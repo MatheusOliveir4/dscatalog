@@ -1,9 +1,8 @@
 package com.devsuperior.dscatalog.entities;
 
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-
-import javax.persistence.*;
 
 @Entity
 @Getter

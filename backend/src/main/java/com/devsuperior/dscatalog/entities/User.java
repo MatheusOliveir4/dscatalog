@@ -1,9 +1,9 @@
 package com.devsuperior.dscatalog.entities;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +22,7 @@ public class User {
   private String email;
   private String password;
 
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(
           name = "tb_user_role",
           joinColumns = @JoinColumn(name = "user_id"),
