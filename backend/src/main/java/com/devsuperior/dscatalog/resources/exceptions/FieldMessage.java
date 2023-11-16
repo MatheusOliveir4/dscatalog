@@ -1,10 +1,10 @@
 package com.devsuperior.dscatalog.resources.exceptions;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@Builder
+@AllArgsConstructor
 public class FieldMessage {
 
   private String fieldName;
